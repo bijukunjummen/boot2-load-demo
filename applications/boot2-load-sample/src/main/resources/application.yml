@@ -1,0 +1,7 @@
+logging:
+  level:
+    root: info
+    
+loadtarget:
+  host: http://localhost:8082
+  

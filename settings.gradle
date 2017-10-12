@@ -1,0 +1,2 @@
+include 'applications:boot2-load-sample'
+include 'applications:sample-load-target'
