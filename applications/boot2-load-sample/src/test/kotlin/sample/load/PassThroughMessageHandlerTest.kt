@@ -10,11 +10,11 @@ import org.springframework.boot.test.autoconfigure.web.reactive.AutoConfigureWeb
 import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.test.context.junit4.SpringRunner
 import org.springframework.test.web.reactive.server.WebTestClient
-import org.springframework.web.reactive.function.BodyInserters
+import org.springframework.web.reactive.function.BodyInserters.fromObject
 
 
 @RunWith(SpringRunner::class)
-@SpringBootTest(properties = arrayOf("loadtarget.host=http://localhost:8089"))
+@SpringBootTest(properties = arrayOf("loadtarget.host=http://localhost:7684"))
 @AutoConfigureWebTestClient
 class PassThroughMessageHandlerTest {
 
@@ -23,7 +23,7 @@ class PassThroughMessageHandlerTest {
 
     @Rule
     @JvmField
-    final val wireMockRule = WireMockRule(8089)
+    final val wireMockRule = WireMockRule(7684)
 
     @Test
     fun testPassThroughCall() {
@@ -42,7 +42,7 @@ class PassThroughMessageHandlerTest {
         
         webTestClient.post()
                 .uri("/passthrough/messages")
-                .body(BodyInserters.fromObject(Message("1", "one", 0)))
+                .body(fromObject(Message("1", "one", 0)))
                 .exchange()
                 .expectStatus().isOk
                 .expectBody()
