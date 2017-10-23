@@ -1,0 +1,27 @@
+apply plugin: 'scala'
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+    testCompile 'org.scala-lang:scala-library:2.12.4'
+    testCompile 'io.gatling:gatling-app:2.3.0'
+    testCompile 'io.gatling.highcharts:gatling-charts-highcharts:2.3.0'
+}
+
+task gatlingRun(type: JavaExec) {
+    description = 'Run gatling tests'
+    new File("${buildDir}/reports/gatling").mkdirs()
+
+    systemProperties System.getProperties()
+
+    classpath = sourceSets.test.runtimeClasspath + configurations.testCompile + configurations.compile
+    
+    main = "io.gatling.app.Gatling"
+    args = ['-s', 'simulations.BootLoadSimulation',
+            '-sf', 'test/resources',
+            '-df', 'test/resources',
+            '-rf', "${buildDir}/reports/gatling"
+    ]
+}

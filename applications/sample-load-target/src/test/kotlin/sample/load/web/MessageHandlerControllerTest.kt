@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.autoconfigure.web.reactive.WebFluxTest
 import org.springframework.test.context.junit4.SpringRunner
 import org.springframework.test.web.reactive.server.WebTestClient
-import org.springframework.web.reactive.function.BodyInserters
+import org.springframework.web.reactive.function.BodyInserters.fromObject
 import sample.load.Message
 import sample.load.MessageHandler
 import sample.load.config.RoutesConfig
@@ -21,7 +21,7 @@ class MessageHandlerControllerTest {
     @Test
     fun testCallToMessageEndpoint() {
         webTestClient.post().uri("/messages")
-                .body(BodyInserters.fromObject(Message("1", "one", 0)))
+                .body(fromObject(Message("1", "one", 0)))
                 .exchange()
                 .expectStatus().isOk
                 .expectBody()

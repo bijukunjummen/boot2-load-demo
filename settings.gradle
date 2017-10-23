@@ -1,2 +1,4 @@
-include 'applications:boot2-load-sample'
 include 'applications:sample-load-target'
+include 'applications:boot1-load-sample'
+include 'applications:boot2-load-sample'
+include 'applications:load-scripts'

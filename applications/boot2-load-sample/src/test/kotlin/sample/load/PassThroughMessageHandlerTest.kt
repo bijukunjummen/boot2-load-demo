@@ -12,7 +12,6 @@ import org.springframework.test.context.junit4.SpringRunner
 import org.springframework.test.web.reactive.server.WebTestClient
 import org.springframework.web.reactive.function.BodyInserters.fromObject
 
-
 @RunWith(SpringRunner::class)
 @SpringBootTest(properties = arrayOf("loadtarget.host=http://localhost:7684"))
 @AutoConfigureWebTestClient
@@ -58,6 +57,5 @@ class PassThroughMessageHandlerTest {
                 .withRequestBody(matching(".*one.*"))
                 .withHeader("Content-Type", matching("application/json")))
     }
-
-
+    
 }

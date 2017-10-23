@@ -5,14 +5,16 @@ import org.springframework.http.MediaType
 import org.springframework.web.reactive.function.BodyInserters.fromObject
 import org.springframework.web.reactive.function.client.ClientResponse
 import org.springframework.web.reactive.function.client.WebClient
+import org.springframework.web.reactive.function.client.bodyToMono
 import org.springframework.web.reactive.function.server.ServerRequest
 import org.springframework.web.reactive.function.server.ServerResponse
+import org.springframework.web.reactive.function.server.bodyToMono
 import reactor.core.publisher.Mono
 
 class PassThroughHandler(private val webClient: WebClient) {
 
     fun handle(serverRequest: ServerRequest): Mono<ServerResponse> {
-        val messageMono = serverRequest.bodyToMono(Message::class.java)
+        val messageMono = serverRequest.bodyToMono<Message>()
 
         return messageMono.flatMap { message ->
             passThrough(message)
@@ -30,7 +32,7 @@ class PassThroughHandler(private val webClient: WebClient) {
                 .body(fromObject<Message>(message))
                 .exchange()
                 .flatMap { response: ClientResponse ->
-                    response.bodyToMono(MessageAck::class.java)
+                    response.bodyToMono<MessageAck>()
                 }
     }
 }

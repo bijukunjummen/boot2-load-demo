@@ -1,0 +1,13 @@
+---
+
+loadtarget:
+  host: http://localhost:8080
+
+server:
+  port: 8081
+  
+management:
+  security:
+    enabled: false
+  
+  
