@@ -1,0 +1,89 @@
+# Spring Boot2 Performance Harness
+
+This is a sample Spring Boot 2 app to demonstrate the raw performance difference between a Spring Boot 2 app vs a Spring Boot 1 app. 
+
+Sample service to be used as a target which responds with a delay on requests
+
+= Run the Backing Service
+
+[source, bash]
+----
+./gradlew -p applications/sample-load-target clean bootRun
+----
+
+= Run the Spring Boot 2 based app:
+
+== Run the Spring Boot 2 based app:
+[source, bash]
+----
+./gradlew -p applications/boot2-load-sample clean bootRun
+----
+
+== Call target endpoint
+
+Assuming that https://httpie.org/[httpie] is installed
+
+[source, bash]
+----
+http POST 'http://localhost:8082/passthrough/messages' id="1" payload="one"   delay="1000"
+----
+
+OR with CURL
+
+[source, bash]
+----
+curl -X "POST" "http://localhost:8082/passthrough/messages" \
+     -H "Accept: application/json" \
+     -H "Content-Type: application/json" \
+     -d $'{
+  "id": "1",
+  "payload": "one",
+  "delay": "1000"
+}'
+----
+
+
+= Run the Spring Boot 1 based app:
+
+== Run the Spring Boot 1 based app:
+[source, bash]
+----
+./gradlew -p applications/boot1-load-sample clean bootRun
+----
+
+== Call target endpoint
+
+Assuming that https://httpie.org/[httpie] is installed
+
+[source, bash]
+----
+http POST 'http://localhost:8081/passthrough/messages' id="1" payload="one"   delay="1000"
+----
+
+OR with CURL
+
+[source, bash]
+----
+curl -X "POST" "http://localhost:8081/passthrough/messages" \
+     -H "Accept: application/json" \
+     -H "Content-Type: application/json" \
+     -d $'{
+  "id": "1",
+  "payload": "one",
+  "delay": "1000"
+}'
+----
+
+= Run Load tests
+
+== Against Boot 2 version of the app
+[source, bash]
+----
+./gradlew -p applications/load-scripts  -DTARGET_URL=http://localhost:8082 -DSIM_USERS=300 gatlingRun
+----
+
+== Against Boot 1 version of the app
+[source, bash]
+----
+./gradlew -p applications/load-scripts  -DTARGET_URL=http://localhost:8081 -DSIM_USERS=300 gatlingRun
+----
