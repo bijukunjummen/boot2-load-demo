@@ -1,0 +1,18 @@
+logging:
+  level:
+    root: info
+    
+    
+loadtarget:
+  host: http://localhost:8080
+  
+server:
+  port: 8083
+  
+  
+endpoints:
+  prometheus:
+    enabled: true
+  metrics:
+    enabled: true
+  
