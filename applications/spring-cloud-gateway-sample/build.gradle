@@ -1,8 +1,8 @@
 buildscript {
 	ext {
 		kotlinVersion = '1.1.51'
-		springBootVersion = '2.0.0.M3'
-		gatewayVersion = '2.0.0.M2'
+		springBootVersion = '2.0.0.M5'
+		springCloudVersion = 'Finchley.BUILD-SNAPSHOT'
 		wireMockVersion = "2.8.0"
 	}
 	repositories {
@@ -29,7 +29,7 @@ sourceCompatibility = 1.8
 
 dependencyManagement {
 	imports {
-		mavenBom "org.springframework.cloud:spring-cloud-gateway-dependencies:$gatewayVersion"
+		mavenBom "org.springframework.cloud:spring-cloud-dependencies:$springCloudVersion"
 	}
 }
 
