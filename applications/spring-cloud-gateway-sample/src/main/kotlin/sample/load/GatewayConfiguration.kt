@@ -2,7 +2,8 @@ package sample.load
 
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.cloud.gateway.filter.factory.RewritePathWebFilterFactory
-import org.springframework.cloud.gateway.filter.factory.RewritePathWebFilterFactory.*
+import org.springframework.cloud.gateway.filter.factory.RewritePathWebFilterFactory.REGEXP_KEY
+import org.springframework.cloud.gateway.filter.factory.RewritePathWebFilterFactory.REPLACEMENT_KEY
 import org.springframework.cloud.gateway.handler.predicate.RoutePredicates.path
 import org.springframework.cloud.gateway.route.RouteLocator
 import org.springframework.cloud.gateway.route.Routes
