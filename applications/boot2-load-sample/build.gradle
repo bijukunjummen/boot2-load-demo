@@ -1,7 +1,7 @@
 buildscript {
 	ext {
-		kotlinVersion = '1.1.51'
-		springBootVersion = '2.0.0.M5'
+		kotlinVersion = '1.1.60'
+		springBootVersion = '2.0.0.M6'
 		wireMockVersion = "2.8.0"
 	}
 	repositories {
@@ -41,7 +41,6 @@ compileTestKotlin {
 
 dependencies {
 	compile('org.springframework.boot:spring-boot-starter-actuator')
-//	compile('org.springframework.boot:spring-boot-starter-web')
 	compile('org.springframework.boot:spring-boot-starter-webflux')
 	compile("org.jetbrains.kotlin:kotlin-stdlib-jre8:${kotlinVersion}")
 	compile("org.jetbrains.kotlin:kotlin-reflect:${kotlinVersion}")
