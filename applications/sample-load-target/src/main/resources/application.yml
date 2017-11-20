@@ -5,3 +5,7 @@ server:
 logging:
   level:
     root: info
+    
+endpoints:
+  prometheus:
+    enabled: true

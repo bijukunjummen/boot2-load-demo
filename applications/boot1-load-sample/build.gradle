@@ -1,14 +1,14 @@
 buildscript {
-	ext {
-		springBootVersion = '1.5.8.RELEASE'
-		wireMockVersion = "2.8.0"
-	}
-	repositories {
-		mavenCentral()
-	}
-	dependencies {
-		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
-	}
+    ext {
+        springBootVersion = '1.5.8.RELEASE'
+        wireMockVersion = "2.8.0"
+    }
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
 }
 
 apply plugin: 'java'
@@ -20,15 +20,15 @@ version = '0.0.1-SNAPSHOT'
 sourceCompatibility = 1.8
 
 repositories {
-	mavenCentral()
+    mavenCentral()
 }
 
 
 dependencies {
-	compile('org.springframework.boot:spring-boot-starter-actuator')
-	compile('org.springframework.boot:spring-boot-starter-web')
-	compile('io.micrometer:micrometer-spring-legacy:1.0.0-rc.2')
-	compile('io.micrometer:micrometer-registry-prometheus:1.0.0-rc.2')
-	testCompile('org.springframework.boot:spring-boot-starter-test')
-	testCompile("com.github.tomakehurst:wiremock:${wireMockVersion}")
+    compile('org.springframework.boot:spring-boot-starter-actuator')
+    compile('org.springframework.boot:spring-boot-starter-web')
+    compile('io.micrometer:micrometer-spring-legacy:1.0.0-rc.2')
+    compile('io.micrometer:micrometer-registry-prometheus:1.0.0-rc.2')
+    testCompile('org.springframework.boot:spring-boot-starter-test')
+    testCompile("com.github.tomakehurst:wiremock:${wireMockVersion}")
 }

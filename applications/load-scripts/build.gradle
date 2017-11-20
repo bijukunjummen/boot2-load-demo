@@ -1,7 +1,7 @@
 apply plugin: 'scala'
 
 repositories {
-	mavenCentral()
+    mavenCentral()
 }
 
 dependencies {
@@ -17,7 +17,7 @@ task gatlingRun(type: JavaExec) {
     systemProperties System.getProperties()
 
     classpath = sourceSets.test.runtimeClasspath + configurations.testCompile + configurations.compile
-    
+
     main = "io.gatling.app.Gatling"
     args = ['-s', 'simulations.BootLoadSimulation',
             '-sf', 'test/resources',

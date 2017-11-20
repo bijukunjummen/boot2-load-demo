@@ -13,6 +13,3 @@ server:
 endpoints:
   prometheus:
     enabled: true
-  metrics:
-    enabled: true
-  
