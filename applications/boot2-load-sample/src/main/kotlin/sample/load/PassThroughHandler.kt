@@ -29,7 +29,7 @@ class PassThroughHandler(private val webClient: WebClient) {
                 .uri("/messages")
                 .header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
                 .header(HttpHeaders.ACCEPT, MediaType.APPLICATION_JSON_VALUE)
-                .body(fromObject<Message>(message))
+                .body(fromObject(message))
                 .exchange()
                 .flatMap { response: ClientResponse ->
                     response.bodyToMono<MessageAck>()

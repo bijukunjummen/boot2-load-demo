@@ -1,7 +1,7 @@
 buildscript {
     ext {
-        kotlinVersion = '1.1.60'
-        springBootVersion = '2.0.0.M6'
+        kotlinVersion = '1.1.61'
+        springBootVersion = '2.0.0.M7'
         springCloudVersion = 'Finchley.BUILD-SNAPSHOT'
         wireMockVersion = "2.8.0"
     }
@@ -51,6 +51,7 @@ dependencies {
     compile("org.springframework.cloud:spring-cloud-starter-gateway")
     compile('org.springframework.boot:spring-boot-starter-actuator')
     compile('org.springframework.boot:spring-boot-starter-webflux')
+    compile("com.fasterxml.jackson.module:jackson-module-kotlin")
     compile("org.jetbrains.kotlin:kotlin-stdlib-jre8:${kotlinVersion}")
     compile("org.jetbrains.kotlin:kotlin-reflect:${kotlinVersion}")
     testCompile('org.springframework.boot:spring-boot-starter-test')

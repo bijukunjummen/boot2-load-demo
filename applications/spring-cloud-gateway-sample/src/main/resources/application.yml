@@ -1,8 +1,6 @@
 logging:
   level:
     root: info
-#    org.springframework.cloud.gateway: TRACE
-    
     
 loadtarget:
   host: http://localhost:8080
