@@ -73,6 +73,37 @@ curl -X "POST" "http://localhost:8081/passthrough/messages" \
 }'
 ----
 
+= Spring Cloud Gateway based app:
+
+== Run the app:
+[source, bash]
+----
+./gradlew -p applications/spring-cloud-gateway-sample clean bootRun
+----
+
+== Call target endpoint
+
+Assuming that https://httpie.org/[httpie] is installed
+
+[source, bash]
+----
+http POST 'http://localhost:8083/passthrough/messages' id="1" payload="one"   delay="1000"
+----
+
+OR with CURL
+
+[source, bash]
+----
+curl -X "POST" "http://localhost:8083/passthrough/messages" \
+     -H "Accept: application/json" \
+     -H "Content-Type: application/json" \
+     -d $'{
+  "id": "1",
+  "payload": "one",
+  "delay": "1000"
+}'
+----
+
 = Run Load tests
 
 == Against Boot 2 version of the app
@@ -85,4 +116,10 @@ curl -X "POST" "http://localhost:8081/passthrough/messages" \
 [source, bash]
 ----
 ./gradlew -p applications/load-scripts  -DTARGET_URL=http://localhost:8081 -DSIM_USERS=300 gatlingRun
+----
+
+== Against Spring Cloud Gateway version of the app
+[source, bash]
+----
+./gradlew -p applications/load-scripts  -DTARGET_URL=http://localhost:8083 -DSIM_USERS=300 gatlingRun
 ----

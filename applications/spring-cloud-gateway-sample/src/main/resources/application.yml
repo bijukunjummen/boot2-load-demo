@@ -9,9 +9,9 @@ server:
   port: 8083
   
   
-endpoints:
-  prometheus:
-    enabled: true
-  metrics:
-    enabled: true
-  
+management:
+  endpoints:
+    prometheus:
+      enabled: true
+    metrics:
+      enabled: true

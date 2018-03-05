@@ -12,9 +12,9 @@ import java.time.Duration
 
 @Service
 class MessageHandler {
-    
+
     private val counter = Metrics.counter("handler.calls", "uri", "/messages")
-    
+
     fun handleMessage(req: ServerRequest): Mono<ServerResponse> {
         return req.bodyToMono<Message>().flatMap { m ->
             counter.increment()
