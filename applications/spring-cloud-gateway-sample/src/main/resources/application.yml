@@ -15,11 +15,13 @@ management:
       enabled: true
     metrics:
       enabled: true
-      
+    web:
+      exposure:
+        include: "*"      
       
 logging:
   level:
-    org.springframework.cloud.gateway: trace
-    org.springframework.http.server.reactive: info
-    org.springframework.web.reactive: info
-    reactor.ipc.netty: info
+    org.springframework.cloud.gateway: error
+    org.springframework.http.server.reactive: error
+    org.springframework.web.reactive: error
+    reactor.ipc.netty: error
