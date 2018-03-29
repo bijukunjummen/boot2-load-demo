@@ -25,8 +25,8 @@ repositories {
 dependencies {
     compile('org.springframework.boot:spring-boot-starter-actuator')
     compile('org.springframework.boot:spring-boot-starter-web')
-    compile('io.micrometer:micrometer-spring-legacy:1.0.0-rc.2')
-    compile('io.micrometer:micrometer-registry-prometheus:1.0.0-rc.2')
+    compile('io.micrometer:micrometer-spring-legacy:1.0.2')
+    compile('io.micrometer:micrometer-registry-prometheus:1.0.2')
     testCompile('org.springframework.boot:spring-boot-starter-test')
     testCompile("com.github.tomakehurst:wiremock:${wireMockVersion}")
 }

@@ -5,7 +5,16 @@ server:
 logging:
   level:
     root: info
-    
-endpoints:
-  prometheus:
-    enabled: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"   
+  metrics:
+    distribution:
+      percentiles-histogram[http.server.requests]: true 
+      sla:
+        http:
+          server:
+            requests: 1ms, 5ms

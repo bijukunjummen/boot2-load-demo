@@ -9,5 +9,10 @@ server:
 management:
   security:
     enabled: false
-  
-  
+  metrics:
+    distribution:
+      percentiles-histogram[http.server.requests]: true
+      sla:
+        http:
+          server:
+            requests: 1ms, 5ms  

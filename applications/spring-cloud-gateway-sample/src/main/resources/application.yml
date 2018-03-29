@@ -11,13 +11,16 @@ server:
   
 management:
   endpoints:
-    prometheus:
-      enabled: true
-    metrics:
-      enabled: true
     web:
       exposure:
-        include: "*"      
+        include: "*"   
+  metrics:
+    distribution:
+      percentiles-histogram[http.server.requests]: true 
+      sla:
+        http:
+          server:
+            requests: 1ms, 5ms              
       
 logging:
   level:
