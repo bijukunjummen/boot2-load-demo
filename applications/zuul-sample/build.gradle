@@ -1,0 +1,43 @@
+buildscript {
+    ext {
+        springBootVersion = '2.0.0.RELEASE'
+        wireMockVersion = "2.8.0"
+    }
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+group = 'org.bk.samples'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+    maven { url "https://repo.spring.io/milestone" }
+}
+
+
+ext {
+    springCloudVersion = 'Finchley.M9'
+}
+
+dependencies {
+    compile('org.springframework.cloud:spring-cloud-starter-netflix-zuul')
+    testCompile('org.springframework.boot:spring-boot-starter-test')
+    testCompile("com.github.tomakehurst:wiremock-standalone:${wireMockVersion}")
+}
+
+dependencyManagement {
+    imports {
+        mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
+    }
+}

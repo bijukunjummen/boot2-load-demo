@@ -1,0 +1,10 @@
+zuul:
+  routes:
+    first:
+      path: /passthrough/**
+      url: http://localhost:8080
+      strip-prefix: true
+      
+
+server:
+  port: 8084
