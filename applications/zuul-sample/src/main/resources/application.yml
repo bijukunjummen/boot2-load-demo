@@ -8,3 +8,17 @@ zuul:
 
 server:
   port: 8084
+  
+  
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"   
+  metrics:
+    distribution:
+      percentiles-histogram[http.server.requests]: true 
+      sla:
+        http:
+          server:
+            requests: 1ms, 5ms  

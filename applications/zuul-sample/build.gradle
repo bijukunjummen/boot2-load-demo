@@ -34,6 +34,9 @@ dependencies {
     compile('org.springframework.cloud:spring-cloud-starter-netflix-zuul')
     testCompile('org.springframework.boot:spring-boot-starter-test')
     testCompile("com.github.tomakehurst:wiremock-standalone:${wireMockVersion}")
+
+    compile('org.springframework.boot:spring-boot-starter-actuator')
+    runtime('io.micrometer:micrometer-registry-prometheus')
 }
 
 dependencyManagement {
