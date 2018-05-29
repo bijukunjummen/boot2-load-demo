@@ -1,0 +1,41 @@
+buildscript {
+    ext {
+        zuulVersion = "2.1.2"
+    }
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.github.jengelman.gradle.plugins:shadow:2.0.4'
+    }
+}
+
+apply plugin: "java"
+apply plugin: "groovy"
+apply plugin: 'application'
+apply plugin: 'com.github.johnrengelman.shadow'
+
+dependencies {
+    compile("com.netflix.zuul:zuul-core:$zuulVersion")
+    testCompile("junit:junit:4.12")
+    testCompile("org.assertj:assertj-core:3.9.1")
+    compile 'com.netflix.blitz4j:blitz4j:1.37.2'
+}
+
+jar {
+    from sourceSets.main.allGroovy
+}
+
+mainClassName = "com.netflix.zuul.sample.Bootstrap"
+
+applicationDefaultJvmArgs = ["-DTZ=GMT",
+                             "-Dcom.sun.management.jmxremote",
+                             "-Dcom.sun.management.jmxremote.local.only=false",
+                             "-Deureka.validateInstanceId=false",
+                             "-Deureka.mt.num_retries=1"]
+
+
+repositories {
+    jcenter()
+    mavenCentral()
+}

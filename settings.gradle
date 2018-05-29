@@ -3,5 +3,6 @@ include 'applications:boot1-load-sample'
 include 'applications:boot2-load-sample'
 include 'applications:spring-cloud-gateway-sample'
 include 'applications:zuul-sample'
+include 'applications:zuul2-sample'
 include 'applications:load-scripts'
 
