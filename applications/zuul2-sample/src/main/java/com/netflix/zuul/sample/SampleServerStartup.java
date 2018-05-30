@@ -82,7 +82,7 @@ public class SampleServerStartup extends BaseServerStartup {
             ChannelConfig channelDependencies) {
         Map<Integer, ChannelInitializer> portsToChannels = new HashMap<>();
 
-        int port = new DynamicIntProperty("zuul.server.port.main", 7001).get();
+        int port = new DynamicIntProperty("zuul.server.port.main", 8085).get();
 
         ChannelConfig channelConfig = BaseServerStartup.defaultChannelConfig();
         ServerSslConfig sslConfig;

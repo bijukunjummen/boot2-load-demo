@@ -11,7 +11,6 @@ buildscript {
 }
 
 apply plugin: "java"
-apply plugin: "groovy"
 apply plugin: 'application'
 apply plugin: 'com.github.johnrengelman.shadow'
 
@@ -20,10 +19,6 @@ dependencies {
     testCompile("junit:junit:4.12")
     testCompile("org.assertj:assertj-core:3.9.1")
     compile 'com.netflix.blitz4j:blitz4j:1.37.2'
-}
-
-jar {
-    from sourceSets.main.allGroovy
 }
 
 mainClassName = "com.netflix.zuul.sample.Bootstrap"

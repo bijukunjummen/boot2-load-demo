@@ -52,9 +52,10 @@ public class ZuulSampleModule extends AbstractModule {
         bind(OriginManager.class).to(BasicNettyOriginManager.class);
 
         // zuul filter loading
-        install(new ZuulFiltersModule());
-        bind(FilterFileManager.class).asEagerSingleton();
+//        install(new ZuulFiltersModule());
+//        bind(FilterFileManager.class).asEagerSingleton();
 
+        install(new ZuulClasspathFiltersModule());
         // general server bindings
         bind(ServerStatusManager.class); // health/discovery status
         bind(SessionContextDecorator.class).to(ZuulSessionContextDecorator.class); // decorate new sessions when requests come in

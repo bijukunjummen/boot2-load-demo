@@ -44,6 +44,7 @@ public class Bootstrap {
         try {
             ConfigurationManager.loadCascadedPropertiesFromResources("application");
             Injector injector = InjectorBuilder.fromModule(new ZuulSampleModule()).createInjector();
+            injector.getInstance(FiltersRegisteringService.class);
             BaseServerStartup serverStartup = injector.getInstance(BaseServerStartup.class);
             server = serverStartup.server();
 
