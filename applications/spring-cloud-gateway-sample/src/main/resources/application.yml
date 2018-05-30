@@ -1,7 +1,3 @@
-logging:
-  level:
-    root: info
-    
 loadtarget:
   host: http://localhost:8080
   
@@ -10,10 +6,10 @@ server:
   
   
 management:
-#  endpoints:
-#    web:
-#      exposure:
-#        include: "*"   
+  endpoints:
+    web:
+      exposure:
+        include: "*"   
   metrics:
     distribution:
       percentiles-histogram[http.server.requests]: true 
