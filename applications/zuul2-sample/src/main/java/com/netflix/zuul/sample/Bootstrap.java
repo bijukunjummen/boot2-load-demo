@@ -34,6 +34,7 @@ public class Bootstrap {
         new Bootstrap().start();
     }
 
+    
     public void start() {
         System.out.println("Zuul Sample: starting up.");
         long startTime = System.currentTimeMillis();
