@@ -1,7 +1,7 @@
 buildscript {
     ext {
-        kotlinVersion = '1.2.21'
-        springBootVersion = '2.0.2.BUILD-SNAPSHOT'
+        kotlinVersion = '1.2.41'
+        springBootVersion = '2.0.2.RELEASE'
         springCloudVersion = 'Finchley.BUILD-SNAPSHOT'
         wireMockVersion = "2.8.0"
     }

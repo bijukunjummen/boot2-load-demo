@@ -1,6 +1,6 @@
 buildscript {
     ext {
-        springBootVersion = '1.5.10.RELEASE'
+        springBootVersion = '1.5.13.RELEASE'
         wireMockVersion = "2.8.0"
     }
     repositories {
